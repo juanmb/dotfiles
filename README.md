@@ -2,10 +2,7 @@ Install system packages
 =======================
 Some of the packages that I use (Debian/Ubuntu/Mint...).
 
-`sudo apt-get install git zsh htop ranger curl vim vim-gnome exuberant-ctags \
-build-essential chromium-browser nautilus-dropbox keepassx openvpn \
-redis-server python-pip python-virtualenv python-tox python-flake8 python-dev \
-ipython`
+`sudo apt-get install git zsh htop ranger curl vim vim-gnome exuberant-ctags build-essential chromium-browser nautilus-dropbox keepassx openvpn redis-server python-pip python-virtualenv python-tox python-flake8 python-dev ipython`
 
 `sudo pip install virtualenvwrapper`
 
@@ -39,6 +36,8 @@ Vim
 
 MPD
 ===
+Only for reference.
+
 Follow [this tutorial](https://help.ubuntu.com/community/MPD).
 The default music folder is `/var/lib/mpd/music`.
 

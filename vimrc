@@ -117,6 +117,7 @@ map <CR> o<Esc>k
 map <S-Enter> O<Esc>j
 
 " Hide some file types:
+set wildignore+=*.pyc,*.pyo*,*.so,*.swp,*.zip
 let g:explHideFiles='^\.,.*\.pyc$'
 let g:netrw_list_hide='^\.,.*\.pyc$'
 let NERDTreeIgnore=['\.pyc$', '\.o$', '\~$']

@@ -36,15 +36,19 @@ Plugin 'chriskempson/base16-vim'
 
 call vundle#end()
 
+filetype plugin indent on	" required!
+
 " Indentation
 set autoindent          " indent at the same level as the preceding line
-set expandtab           " use spaces instead of tabs
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4     " tab width
 set backspace=indent,eol,start
 
-filetype plugin indent on   " required!
+" Tab settings for different file types
+autocmd FileType python set softtabstop=4 sw=4 ts=4 et
+autocmd FileType go set softtabstop=4 sw=4 ts=4 noet
+autocmd FileType html,htmljinja set softtabstop=2 sw=2 ts=2 et
+
+" Show a different background color after column 80
+let &colorcolumn=join(range(81,999),",")
 
 " Basic settings
 syntax enable       " highlight syntax
@@ -100,7 +104,7 @@ map <F9> :call Compile()<CR>
 " Toggle paste mode with F4
 set pastetoggle=<F4>
 
-" Run the current Python script with F4
+" Run a Python script with F4 (example)
 " nnoremap <F4> <ESC>:w<CR>:!python myscript.py<CR>
 
 " Move between tabs using Alt+right, Alt+left
@@ -121,11 +125,6 @@ set wildignore+=*.pyc,*.pyo*,*.so,*.swp,*.zip
 let g:explHideFiles='^\.,.*\.pyc$'
 let g:netrw_list_hide='^\.,.*\.pyc$'
 let NERDTreeIgnore=['\.pyc$', '\.o$', '\~$']
-
-" Autoload local .vimrc files
-if filereadable(expand("./.vimrc.local"))
-  source .vimrc.local
-endif
 
 iabbrev @@ juanmb@gmail.com
 

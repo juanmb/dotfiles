@@ -11,6 +11,7 @@ DEFAULT_USER="juan"
 # Example aliases
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
+alias gvim="gvim 2>/dev/null"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -49,7 +50,7 @@ alias ohmyzsh="vim ~/.oh-my-zsh"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git debian golang virtualenvwrapper colored-man docker)
+plugins=(git debian golang virtualenvwrapper colored-man jsontools fabric)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -76,7 +77,7 @@ export PATH="/home/juan/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/s
 
 # Setup for Go
 export GOPATH=~/work/go
-export PATH=$GOPATH/bin:$PATH
+export PATH=/usr/local/go/bin:$GOPATH/bin:$PATH
 
 # Disable the default virtualenv prompt
 # and show the one defined by the theme
@@ -86,3 +87,6 @@ export VIRTUAL_ENV_DISABLE_PROMPT='1'
 BASE16_SCHEME="default"
 BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.dark.sh"
 [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
+
+# Fix tmux colors
+alias tmux='TERM=screen-256color-bce tmux'

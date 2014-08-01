@@ -23,6 +23,7 @@ Plugin 'jnwhiteh/vim-golang'
 Plugin 'mitsuhiko/vim-jinja'
 Plugin 'kergoth/vim-bitbake'
 Plugin 'kurayama/systemd-vim-syntax'
+Bundle 'christoomey/vim-tmux-navigator'
 "Plugin 'tpope/vim-surround'
 "Plugin 'kchmck/vim-coffee-script'
 "Plugin 'tpope/vim-commentary'
@@ -109,6 +110,12 @@ set pastetoggle=<F4>
 " Run a Python script with F4 (example)
 " nnoremap <F4> <ESC>:w<CR>:!python myscript.py<CR>
 
+" Move through wrapped lines with Up and Down keys
+imap <silent> <Down> <C-o>gj
+imap <silent> <Up> <C-o>gk
+nmap <silent> <Down> gj
+nmap <silent> <Up> gk
+
 " Move between tabs using Alt+right, Alt+left
 map <silent> <A-Right> :tabnext<CR>
 map <silent> <A-Left> :tabprevious<CR>
@@ -121,6 +128,9 @@ map <C-left> <ESC>:bprevious<CR>
 map <CR> o<Esc>k
 " Insert a new line before the current one using SHIFT+ENTER
 map <S-Enter> O<Esc>j
+
+" Auto-indent JSON by typing :FormatJSON
+com! FormatJSON %!python -m json.tool
 
 " Hide some file types:
 set wildignore+=*.pyc,*.pyo*,*.so,*.swp,*.zip

@@ -12,6 +12,8 @@ DEFAULT_USER="juan"
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias gvim="gvim 2>/dev/null"
+alias pp="python -m json.tool" # pretty print json
+pcapture() { cat "$*" | zlib-flate -uncompress | pp; }
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"

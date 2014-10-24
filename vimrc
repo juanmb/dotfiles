@@ -136,7 +136,7 @@ map <S-Enter> O<Esc>j
 com! FormatJSON %!python -m json.tool
 
 " Hide some file types:
-set wildignore+=*.pyc,*.pyo*,*.so,*.swp,*.zip
+set wildignore+=*.pyc,*.pyo*,*.so,*.swp,*.zip,*.o,*.a
 let g:explHideFiles='^\.,.*\.pyc$'
 let g:netrw_list_hide='^\.,.*\.pyc$'
 let NERDTreeIgnore=['\.pyc$', '\.o$', '\~$']

@@ -58,7 +58,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/opt/arduino-1.5.8:/home/juan/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+export PATH="/opt/arduino-1.5.8:${HOME}/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -79,7 +79,8 @@ export PATH="/opt/arduino-1.5.8:/home/juan/bin:/usr/local/sbin:/usr/local/bin:/u
 
 # Setup for Go
 export GOPATH=~/work/go
-export PATH=/usr/local/go/bin:$GOPATH/bin:$PATH
+export GOROOT=/usr/local/go
+export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
 
 # Disable the default virtualenv prompt
 # and show the one defined by the theme

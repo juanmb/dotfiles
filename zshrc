@@ -52,7 +52,7 @@ pcapture() { cat "$*" | zlib-flate -uncompress | pp; }
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(wd git debian golang colored-man pass virtualenvwrapper)
+plugins=(wd git debian golang colored-man pass virtualenvwrapper tmuxinator)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -65,11 +65,7 @@ export PATH="/opt/arduino-1.5.8:${HOME}/bin:/usr/local/sbin:/usr/local/bin:/usr/
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+export EDITOR='vim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -92,4 +88,5 @@ BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.dark.sh"
 [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
 
 # Fix tmux colors
-alias tmux='TERM=screen-256color-bce tmux'
+#alias tmux='TERM=screen-256color-bce tmux'
+export TERM=screen-256color-bce

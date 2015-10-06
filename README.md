@@ -2,15 +2,23 @@ Install system packages
 =======================
 Some of the packages that I use (Debian/Ubuntu/Mint...).
 
-`sudo apt-get install git zsh htop ranger curl vim vim-gnome exuberant-ctags build-essential chromium-browser nautilus-dropbox keepassx openvpn redis-server python-pip python-virtualenv python-tox python-flake8 python-dev ipython`
+`sudo apt-get install git zsh htop ranger curl vim vim-gnome exuberant-ctags
+build-essential chromium-browser nautilus-dropbox pass openvpn
+python-pip python-virtualenv python-tox python-flake8 python-dev ipython`
 
 `sudo pip install virtualenvwrapper`
 
-Patch fonts
-===========
-They are neccesary for vim-airline and for some oh-my-zsh themes.
-Follow [this guide](https://powerline.readthedocs.org/en/latest/installation/linux.html#patched-font)
-to install the patched version of the font *DejaVu Sans Mono*.
+Patched fonts for powerline
+===========================
+This font is neccesary for vim-airline and some oh-my-zsh themes.
+
+Download [this font](https://github.com/powerline/fonts/blob/master/DejaVuSansMono/DejaVu%20Sans%20Mono%20for%20Powerline.ttf?raw=true).
+
+* `mkdir .fonts`
+
+Move the downloaded font to `~/.fonts`.
+
+* `fc-cache -vf ~/.fonts`
 
 Change the font in your terminal emulator to *DejaVu Sans Mono for Powerline*, 10px.
 
@@ -26,7 +34,6 @@ Color scheme:
 Install my dotfiles
 ===================
 * `git clone https://github.com/juanmb/dotfiles.git ~/.dotfiles`
-* `chmod a+x ~/.dotfiles/mksymlinks.sh`
 * `~/.mksymlinks.sh`
 
 Vim

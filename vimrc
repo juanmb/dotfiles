@@ -27,6 +27,7 @@ Plugin 'vim-scripts/openscad.vim'
 Bundle 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-markdown'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'embear/vim-localvimrc'
 "Plugin 'tpope/vim-surround'
 "Plugin 'kchmck/vim-coffee-script'
 "Plugin 'tpope/vim-commentary'
@@ -36,8 +37,6 @@ Plugin 'Valloric/YouCompleteMe'
 "Plugin 'vim-scripts/linuxsty.vim'
 
 " Color themes
-"Plugin 'cschlueter/vim-wombat'
-"Plugin 'toupeira/vim-desertink'
 Plugin 'chriskempson/base16-vim'
 
 call vundle#end()
@@ -52,6 +51,7 @@ set backspace=indent,eol,start
 autocmd FileType python set softtabstop=4 sw=4 ts=4 et
 autocmd FileType go set softtabstop=4 sw=4 ts=4 noet
 autocmd FileType html,htmljinja set softtabstop=2 sw=2 ts=2 et
+autocmd FileType vhdl set softtabstop=3 sw=3 ts=3 noet
 
 " Show a different background color after column 80
 let &colorcolumn=join(range(81,999),",")
@@ -136,7 +136,7 @@ map <S-Enter> O<Esc>j
 com! FormatJSON %!python -m json.tool
 
 " Hide some file types:
-set wildignore+=*.pyc,*.pyo*,*.so,*.swp,*.zip,*.o,*.a
+set wildignore+=*.pyc,*.pyo*,*.so,*.swp,*.zip,*.o,*.a,*~
 let g:explHideFiles='^\.,.*\.pyc$'
 let g:netrw_list_hide='^\.,.*\.pyc$'
 let NERDTreeIgnore=['\.pyc$', '\.o$', '\~$']

@@ -11,8 +11,8 @@ DEFAULT_USER="juan"
 # Example aliases
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
-alias gvim="gvim 2>/dev/null"
-alias pp="python -m json.tool" # pretty print json
+alias pp="python -m json.tool"	# pretty print json
+alias t="todo.sh" 		# todo.txt
 pcapture() { cat "$*" | zlib-flate -uncompress | pp; }
 
 # Uncomment the following line to use case-sensitive completion.
@@ -52,14 +52,18 @@ pcapture() { cat "$*" | zlib-flate -uncompress | pp; }
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(wd git debian golang colored-man pass virtualenvwrapper tmuxinator)
+plugins=(wd git golang colored-man pass virtualenvwrapper tmuxinator)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+export PATH=$PATH:"/opt/arduino-1.6.5-r5:${HOME}/bin"
+export PATH=$PATH:"/media/data/Xilinx/14.7/ISE_DS/ISE/bin/lin64/"
 
-export PATH="/opt/arduino-1.6.5-r5:${HOME}/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
-# export MANPATH="/usr/local/man:$MANPATH"
+# Setup for Go
+export GOPATH=~/work/go
+export GOROOT=/usr/local/go
+export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -72,11 +76,6 @@ export EDITOR='vim'
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-# Setup for Go
-export GOPATH=~/work/go
-export GOROOT=/usr/local/go
-export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
 
 # Disable the default virtualenv prompt
 # and show the one defined by the theme

@@ -8,7 +8,6 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="agnoster"
 DEFAULT_USER="juan"
 
-# Example aliases
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias pp="python -m json.tool"	# pretty print json
@@ -39,7 +38,7 @@ pcapture() { cat "$*" | zlib-flate -uncompress | pp; }
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -56,14 +55,16 @@ plugins=(wd git golang colored-man pass virtualenvwrapper tmuxinator)
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-export PATH=$PATH:"/opt/arduino-1.6.5-r5:${HOME}/bin"
-export PATH=$PATH:"/media/data/Xilinx/14.7/ISE_DS/ISE/bin/lin64/"
+# Custom PATH
+export PATH="$PATH:${HOME}/bin:$HOME/.npm-packages/bin"
+export PATH="$PATH:/opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64"
+export PATH="$PATH:/media/data/Xilinx/14.7/ISE_DS/ISE/bin/lin64/"
+export PATH="$PATH:/opt/arduino-1.6.5-r5"
 
-# Setup for Go
-export GOPATH=~/work/go
-export GOROOT=/usr/local/go
-export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
+# Go paths
+export GOROOT="/usr/local/go"
+export GOPATH="${HOME}/work/go"
+export PATH="$PATH:$GOROOT/bin:$GOPATH/bin"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8

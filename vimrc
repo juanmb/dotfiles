@@ -28,6 +28,7 @@ Bundle 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-markdown'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'embear/vim-localvimrc'
+Plugin 'ekalinin/Dockerfile.vim'
 "Plugin 'tpope/vim-surround'
 "Plugin 'kchmck/vim-coffee-script'
 "Plugin 'tpope/vim-commentary'
@@ -155,3 +156,5 @@ set mouse=a
 " Airline
 let g:airline_theme             = 'base16'
 let g:airline_powerline_fonts   = 1
+
+let g:localvimrc_sandbox = 0

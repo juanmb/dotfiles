@@ -2,9 +2,17 @@ Install system packages
 =======================
 This line installs (in Debian/Ubuntu) some of the most essential packages I use:
 
-`sudo apt-get install git zsh tmux htop ranger curl vim exuberant-ctags
+```
+sudo apt-get install git zsh tmux htop ranger curl vim exuberant-ctags
 build-essential chromium-browser nautilus-dropbox pass openvpn
-silversearcher-ag`
+silversearcher-ag
+```
+
+Install powerline globally:
+
+```
+sudo pip install git+git://github.com/Lokaltog/powerline
+```
 
 Python development
 ==================

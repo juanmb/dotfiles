@@ -155,7 +155,13 @@ colorscheme base16-default
 set mouse=a
 
 " Airline
-let g:airline_theme             = 'base16'
-let g:airline_powerline_fonts   = 1
+let g:airline_theme = 'base16'
+let g:airline_powerline_fonts = 1
 
 let g:localvimrc_sandbox = 0
+
+" YouCompleteMe
+let g:ycm_autoclose_preview_window_after_insertion = 1
+
+" Golang
+let g:go_fmt_command = "goimports"

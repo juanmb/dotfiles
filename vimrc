@@ -151,7 +151,7 @@ au BufRead,BufNewFile *.ino set filetype=cpp
 let base16colorspace=256 " Access colors present in 256 colorspace
 set t_Co=256 " 256 color mode
 set background=dark
-colorscheme base16-default
+colorscheme base16-default-dark
 set mouse=a
 
 " Airline

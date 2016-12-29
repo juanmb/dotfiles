@@ -1,20 +1,19 @@
-Install system packages
-=======================
+Essential packages
+==================
+
 This line installs (in Debian/Ubuntu) some of the most essential packages I use:
 
-    sudo apt-get install git zsh tmux htop ranger curl vim exuberant-ctags build-essential chromium-browser nautilus-dropbox pass openvpn silversearcher-ag
+    sudo apt-get install git zsh byobu htop ranger curl vim exuberant-ctags build-essential chromium-browser nautilus-dropbox pass openvpn silversearcher-ag
+
+Install some Python packages:
+
+    sudo apt-get install python-pip python-virtualenv python-tox python-flake8 python-dev ipython python-numpy python-scipy
+    sudo pip install -U pip
+    sudo pip install virtualenvwrapper
 
 Install powerline globally:
 
     sudo pip install git+git://github.com/Lokaltog/powerline
-
-
-Python development
-==================
-
-    python-pip python-virtualenv python-tox python-flake8 python-dev ipython python-numpy python-scipy
-
-    sudo pip install virtualenvwrapper
 
 
 Patched fonts for powerline
@@ -30,6 +29,7 @@ terminal emulator settings.
 
 ZSH
 ===
+
 Install Oh-my-zsh:
 
     curl -L http://install.ohmyz.sh | sh
@@ -41,21 +41,19 @@ Color scheme:
     git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 
 
-Install my dotfiles
-===================
+My dotfiles
+===========
+
+Clone the repository from GitHub and execute the installation script:
 
     git clone https://github.com/juanmb/dotfiles.git ~/.dotfiles
+    .dotfiles/mksymlinks.sh
 
-    ~/.mksymlinks.sh
 
+Byobu
+=====
 
-Install Gnome Encfs Manager
-===========================
-
-Encfs is a great tool for encrypting a folder which contains confidential data
-and has to be stored in a non-trusted storage media (eg. Dropbox).
-
-    sudo add-apt-repository ppa:gencfsm && sudo apt-get update && sudo apt-get -y install gnome-encfs-manager
+Configure the terminal to run `/usr/bin/byobu` instead of the default shell.
 
 
 Vim
@@ -68,12 +66,10 @@ Install Vundle:
 In vim, execute `:PluginInstall`
 
 
-MPD
-===
-Only for reference. I don't use it (yet).
+Gnome Encfs Manager
+===================
 
-Follow [this tutorial](https://help.ubuntu.com/community/MPD).
-The default music folder is `/var/lib/mpd/music`.
+Encfs is a great tool for encrypting a folder which contains confidential data
+that has to be stored in a non-trusted storage media (eg. Dropbox).
 
-This [Python script](http://www.webupd8.org/2011/02/recursively-download-cover-art-for-all.html)
-recursively downloads album art to each album folder.
+    sudo add-apt-repository ppa:gencfsm && sudo apt-get update && sudo apt-get -y install gnome-encfs-manager

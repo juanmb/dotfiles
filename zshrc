@@ -62,7 +62,7 @@ export PATH="$PATH:/media/data/Xilinx/14.7/ISE_DS/ISE/bin/lin64/"
 export PATH="$PATH:/opt/arduino-1.6.5-r5"
 
 # Go paths
-export GOROOT="/usr/local/go"
+#export GOROOT="/usr/local/go"
 export GOPATH="${HOME}/work/go"
 export PATH="$PATH:$GOROOT/bin:$GOPATH/bin"
 
@@ -90,3 +90,5 @@ base16_default-dark
 # Fix tmux colors
 alias tmux='TERM=screen-256color-bce tmux'
 #export TERM=screen-256color-bce
+
+watch() { while inotifywait --exclude .swp -e modify -r .; do $@; done; }

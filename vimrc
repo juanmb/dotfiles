@@ -10,6 +10,7 @@ Plugin 'gmarik/vundle'
 " My Bundles here:
 Plugin 'scrooloose/nerdtree'
 "Plugin 'vim-scripts/taglist.vim'
+Plugin 'SirVer/ultisnips'
 Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline'
@@ -28,10 +29,11 @@ Plugin 'vim-scripts/openscad.vim'
 Bundle 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-markdown'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'embear/vim-localvimrc'
 Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'Chiel92/vim-autoformat'
+Plugin 'embear/vim-localvimrc'
+Plugin 'wannesm/wmgraphviz.vim'
 "Plugin 'tpope/vim-surround'
-"Plugin 'kchmck/vim-coffee-script'
 "Plugin 'tpope/vim-commentary'
 "Plugin 'pangloss/vim-javascript'
 "Plugin 'davidhalter/jedi-vim'
@@ -56,7 +58,7 @@ autocmd FileType html,htmljinja set softtabstop=2 sw=2 ts=2 et
 autocmd FileType vhdl set softtabstop=3 sw=3 ts=3 noet
 
 " Show a different background color after column 80
-let &colorcolumn=join(range(81,999),",")
+"let &colorcolumn=join(range(81,999),",")
 
 " Basic settings
 syntax enable       " highlight syntax
@@ -68,6 +70,8 @@ set nowrap          " don't wrap lines
 set linebreak       " break lines when possible
 set shell=/bin/bash
 set laststatus=2    " always show the status line
+set fileformat=unix
+set fileformats=unix
 let g:Powerline_symbols = 'fancy'
 inoremap jj <Esc>   " escape insert mode with jj
 
@@ -98,16 +102,8 @@ map <C-l> <C-w>l
 " No visual bell of beep
 au VimEnter * set vb t_vb=
 
-" Show NerdTree using F6
-nnoremap <silent> <F6> <ESC>:NERDTreeToggle<CR>
-nmap <C-n> :NERDTreeToggle<CR>
-let g:NERDTreeWinSize = 20
-
-" Show Tlist with F8
-nnoremap <silent> <F8> <ESC>:TagbarToggle<CR>
-
 " Compile with F9
-map <F9> :call Compile()<CR>
+nmap <F9> :make<CR>
 
 " Toggle paste mode with F4
 set pastetoggle=<F4>
@@ -141,7 +137,6 @@ com! FormatJSON %!python -m json.tool
 set wildignore+=*.pyc,*.pyo*,*.so,*.swp,*.zip,*.o,*.a,*~
 let g:explHideFiles='^\.,.*\.pyc$'
 let g:netrw_list_hide='^\.,.*\.pyc$'
-let NERDTreeIgnore=['\.pyc$', '\.o$', '\~$']
 
 iabbrev @@ juanmb@gmail.com
 
@@ -154,14 +149,34 @@ set background=dark
 colorscheme base16-default-dark
 set mouse=a
 
+" Configuration of plugins
+""""""""""""""""""""""""""""""""""""""""""
+
 " Airline
 let g:airline_theme = 'base16'
 let g:airline_powerline_fonts = 1
 
+" Show NerdTree using F6
+nnoremap <silent> <F6> <ESC>:NERDTreeToggle<CR>
+nmap <C-n> :NERDTreeToggle<CR>
+let g:NERDTreeWinSize = 20
+let NERDTreeIgnore=['\.pyc$', '\.o$', '\~$']
+
+" Show Tlist with F8
+nnoremap <silent> <F8> <ESC>:TagbarToggle<CR>
+
+" localvimrc
 let g:localvimrc_sandbox = 0
 
 " YouCompleteMe
 let g:ycm_autoclose_preview_window_after_insertion = 1
 
-" Golang
+" Vim-go
 let g:go_fmt_command = "goimports"
+let g:UltiSnipsExpandTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+au FileType go nmap <F9> <Plug>(go-build)
+
+" Vim-autoformat
+let g:formatdef_c_config = '"astyle --mode=c --style=stroustrup -pcHs4"'
+let g:formatters_c = ['c_config']

@@ -10,9 +10,6 @@ DEFAULT_USER="juan"
 
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
-alias pp="python -m json.tool"	# pretty print json
-alias t="todo.sh" 		# todo.txt
-pcapture() { cat "$*" | zlib-flate -uncompress | pp; }
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -51,7 +48,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(wd git golang colored-man pass virtualenvwrapper tmuxinator)
+plugins=(wd go colored-man pass virtualenvwrapper)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -59,10 +56,10 @@ source $ZSH/oh-my-zsh.sh
 export PATH="$PATH:${HOME}/bin:$HOME/.npm-packages/bin"
 export PATH="$PATH:/opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64"
 export PATH="$PATH:/media/data/Xilinx/14.7/ISE_DS/ISE/bin/lin64/"
-export PATH="$PATH:/opt/arduino-1.6.5-r5"
+export PATH="$PATH:/opt/sam-ba_cdc_linux"
+export PATH="$PATH:/opt/arduino"
 
 # Go paths
-#export GOROOT="/usr/local/go"
 export GOPATH="${HOME}/work/go"
 export PATH="$PATH:$GOROOT/bin:$GOPATH/bin"
 
@@ -89,6 +86,15 @@ base16_default-dark
 
 # Fix tmux colors
 alias tmux='TERM=screen-256color-bce tmux'
-#export TERM=screen-256color-bce
 
+# Custom commands
 watch() { while inotifywait --exclude .swp -e modify -r .; do $@; done; }
+pcapture() { cat "$*" | zlib-flate -uncompress | pp; }
+
+alias ls="ls --group-directories-first --color -h"
+alias pp="python -m json.tool"	# pretty print json
+alias t="todo.sh" 		# todo.txt
+
+# Custom environment variables
+export T8_DEVICE_FILE="device-file.dat"
+export T8_SETTINGS="conf/settings-devel.toml"

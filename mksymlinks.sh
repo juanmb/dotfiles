@@ -11,6 +11,7 @@ makesymlink() {
 		mv -f $2 $2.bak
 	fi
 	echo "Creating symlink $1 -> $2"
+	mkdir -p $(dirname $2)
 	ln -s $1 $2
 }
 

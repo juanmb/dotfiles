@@ -11,9 +11,6 @@ WORKON_HOME=$HOME/work/virtualenvs
 
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
-alias pp="python -m json.tool"	# pretty print json
-alias t="todo.sh" 		# todo.txt
-pcapture() { cat "$*" | zlib-flate -uncompress | pp; }
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -52,30 +49,24 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(wd git golang colored-man pass virtualenvwrapper kubectl)
+plugins=(wd git golang dotenv pass virtualenvwrapper kubectl)
 
 source $ZSH/oh-my-zsh.sh
 
 # Go paths
-#GOVERSION="1.5.4"
-GOVERSION="1.10.3"
+GOVERSION="1.11"
 export GOROOT="/usr/local/go-${GOVERSION}"
 export GOPATH="${HOME}/work/go-${GOVERSION}"
 
 export PATH="$PATH:${HOME}/.local/bin:$GOROOT/bin:$GOPATH/bin:${HOME}/.node_modules/bin"
-export PATH="$PATH:/opt/Logic"
+
+source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 export EDITOR='vim'
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 # Disable the default virtualenv prompt
 # and show the one defined by the theme
@@ -88,11 +79,17 @@ base16_default-dark
 
 # Fix tmux colors
 alias tmux='TERM=screen-256color-bce tmux'
-#export TERM=screen-256color-bce
 
+# Custom commands
 watch() { while inotifywait --exclude .swp -e modify -r .; do $@; done; }
 
 # Arduino-Makefile configuration
 export ARDUINO_DIR="/opt/arduino-1.8.5"
 
 export KOPS_STATE_STORE=s3://clusters.dev.twave.io
+
+pcapture() { cat "$*" | zlib-flate -uncompress | pp; }
+
+alias ls="ls --group-directories-first --color -h"
+alias jspp="python -m json.tool"	# pretty print json
+alias t="todo.sh" 			# todo.txt

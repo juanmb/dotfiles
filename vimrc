@@ -30,13 +30,15 @@ Plugin 'tpope/vim-markdown'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'embear/vim-localvimrc'
 Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'pearofducks/ansible-vim'
+"Plugin 'vim-scripts/DrawIt'
 "Plugin 'tpope/vim-surround'
-"Plugin 'kchmck/vim-coffee-script'
 "Plugin 'tpope/vim-commentary'
 "Plugin 'pangloss/vim-javascript'
 "Plugin 'davidhalter/jedi-vim'
 "Plugin 'vim-scripts/c.vim'
 "Plugin 'vim-scripts/linuxsty.vim'
+"Plugin 'cyberkov/openhab-vim'
 
 " Color themes
 Plugin 'chriskempson/base16-vim'
@@ -54,6 +56,9 @@ autocmd FileType python set softtabstop=4 sw=4 ts=4 et
 autocmd FileType go set softtabstop=4 sw=4 ts=4 noet
 autocmd FileType html,htmljinja set softtabstop=2 sw=2 ts=2 et
 autocmd FileType vhdl set softtabstop=3 sw=3 ts=3 noet
+autocmd FileType openscad set softtabstop=4 sw=4 ts=4 et
+autocmd FileType rst set softtabstop=2 sw=2 ts=2 et
+autocmd FileType yaml set softtabstop=2 sw=2 ts=2 et
 
 " Show a different background color after column 80
 let &colorcolumn=join(range(81,999),",")

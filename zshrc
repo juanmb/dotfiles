@@ -7,6 +7,7 @@ export ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="agnoster"
 DEFAULT_USER="juan"
+WORKON_HOME=$HOME/work/virtualenvs
 
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
@@ -51,20 +52,18 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(wd git golang colored-man pass virtualenvwrapper tmuxinator)
+plugins=(wd git golang colored-man pass virtualenvwrapper kubectl)
 
 source $ZSH/oh-my-zsh.sh
 
-# Custom PATH
-export PATH="$PATH:${HOME}/bin:$HOME/.npm-packages/bin"
-export PATH="$PATH:/opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64"
-export PATH="$PATH:/media/data/Xilinx/14.7/ISE_DS/ISE/bin/lin64/"
-export PATH="$PATH:/opt/arduino-1.6.5-r5"
-
 # Go paths
-#export GOROOT="/usr/local/go"
-export GOPATH="${HOME}/work/go"
-export PATH="$PATH:$GOROOT/bin:$GOPATH/bin"
+#GOVERSION="1.5.4"
+GOVERSION="1.10.3"
+export GOROOT="/usr/local/go-${GOVERSION}"
+export GOPATH="${HOME}/work/go-${GOVERSION}"
+
+export PATH="$PATH:${HOME}/.local/bin:$GOROOT/bin:$GOPATH/bin:${HOME}/.node_modules/bin"
+export PATH="$PATH:/opt/Logic"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -92,3 +91,8 @@ alias tmux='TERM=screen-256color-bce tmux'
 #export TERM=screen-256color-bce
 
 watch() { while inotifywait --exclude .swp -e modify -r .; do $@; done; }
+
+# Arduino-Makefile configuration
+export ARDUINO_DIR="/opt/arduino-1.8.5"
+
+export KOPS_STATE_STORE=s3://clusters.dev.twave.io

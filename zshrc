@@ -62,9 +62,6 @@ export PATH="$PATH:${HOME}/.local/bin:$GOROOT/bin:$GOPATH/bin:${HOME}/.node_modu
 
 source $ZSH/oh-my-zsh.sh
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
 # Preferred editor for local and remote sessions
 export EDITOR='vim'
 
@@ -93,3 +90,5 @@ pcapture() { cat "$*" | zlib-flate -uncompress | pp; }
 alias ls="ls --group-directories-first --color -h"
 alias jspp="python -m json.tool"	# pretty print json
 alias t="todo.sh" 			# todo.txt
+
+export KOPS_STATE_STORE=s3://clusters.dev.twave.io

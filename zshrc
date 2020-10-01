@@ -7,7 +7,7 @@ export ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="agnoster"
 DEFAULT_USER="juan"
-WORKON_HOME=$HOME/work/virtualenvs
+WORKON_HOME=$HOME/.virtualenvs
 
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
@@ -54,11 +54,8 @@ plugins=(wd git golang dotenv pass virtualenvwrapper kubectl)
 source $ZSH/oh-my-zsh.sh
 
 # Go paths
-GOVERSION="1.11"
-export GOROOT="/usr/local/go-${GOVERSION}"
-export GOPATH="${HOME}/work/go-${GOVERSION}"
-
-export PATH="$PATH:${HOME}/.local/bin:$GOROOT/bin:$GOPATH/bin:${HOME}/.node_modules/bin"
+export GOROOT="/usr/local/go"
+export PATH="$PATH:${HOME}/.local/bin:$GOROOT/bin:${HOME}/.node_modules/bin:/usr/local/tinygo/bin"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -72,7 +69,10 @@ export VIRTUAL_ENV_DISABLE_PROMPT='1'
 # Base16 shell colors
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
-base16_default-dark
+#base16_default-dark
+#base16_oceanicnext
+base16_darktooth
+#base16_gruvbox-dark-medium
 
 # Fix tmux colors
 alias tmux='TERM=screen-256color-bce tmux'
@@ -81,14 +81,14 @@ alias tmux='TERM=screen-256color-bce tmux'
 watch() { while inotifywait --exclude .swp -e modify -r .; do $@; done; }
 
 # Arduino-Makefile configuration
-export ARDUINO_DIR="/opt/arduino-1.8.5"
+export ARDUINO_DIR="/opt/arduino-1.8.7"
 
-export KOPS_STATE_STORE=s3://clusters.dev.twave.io
-
-pcapture() { cat "$*" | zlib-flate -uncompress | pp; }
+# pcapture() { cat "$*" | zlib-flate -uncompress | pp; }
 
 alias ls="ls --group-directories-first --color -h"
 alias jspp="python -m json.tool"	# pretty print json
-alias t="todo.sh" 			# todo.txt
+#alias t="todo.sh" 			# todo.txt
 
-export KOPS_STATE_STORE=s3://clusters.dev.twave.io
+#export KOPS_STATE_STORE=s3://clusters.dev.twave.io
+
+#alias swagger='docker run --rm -it -e GOPATH=$GOPATH:/go -v $HOME:$HOME -w $(pwd) quay.io/goswagger/swagger'

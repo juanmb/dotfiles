@@ -1,44 +1,42 @@
-set nocompatible                  " no compatible with old vi
-
-" Plugins installed with vim-plug
+" Plugins folder
 call plug#begin('~/.local/share/nvim/plugged')
+" List of plugins
+Plug 'ninegrid/vim-fbp'
 Plug 'scrooloose/nerdtree'
 "Plug 'SirVer/ultisnips'
 Plug 'majutsushi/tagbar'
 "Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'hynek/vim-python-pep8-indent'
-Plug 'nvie/vim-flake8'
-Plug 'godlygeek/tabular'
+"Plug 'hynek/vim-python-pep8-indent'
+"Plug 'nvie/vim-flake8'
+"Plug 'godlygeek/tabular'
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'fatih/vim-go'
-Plug 'mitsuhiko/vim-jinja'
+"Plug 'mitsuhiko/vim-jinja'
 "Plug 'kergoth/vim-bitbake'
 "Plug 'kurayama/systemd-vim-syntax'
 "Plug 'vim-scripts/openscad.vim'
-Bundle 'christoomey/vim-tmux-navigator'
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-markdown'
 Plug 'Valloric/YouCompleteMe'
-Plug 'ekalinin/Dockerfile.vim'
-Plug 'pearofducks/ansible-vim'
-"Plug 'sudar/vim-arduino-syntax'
+"Plug 'ekalinin/Dockerfile.vim'
+"Plug 'pearofducks/ansible-vim'
+"Plug 'vhda/verilog_systemverilog.vim'
 "Plug 'vim-scripts/DrawIt'
 "Plug 'Chiel92/vim-autoformat'
 "Plug 'embear/vim-localvimrc'
-"Plug 'wannesm/wmgraphviz.vim'
+Plug 'wannesm/wmgraphviz.vim'
 "Plug 'tpope/vim-surround'
 "Plug 'tpope/vim-commentary'
 "Plug 'pangloss/vim-javascript'
 "Plug 'davidhalter/jedi-vim'
 "Plug 'vim-scripts/c.vim'
 "Plug 'vim-scripts/linuxsty.vim'
-"Plug 'cyberkov/openhab-vim'
-
-" Color themes
-Plug 'chriskempson/base16-vim'
+Plug 'chriskempson/base16-vim' " Color themes
+Plug 'https://bitbucket.org/spilt/vim-peg', { 'for': 'peg' }
 call plug#end()
 
 "filetype plugin indent on	" required!
@@ -49,13 +47,12 @@ set backspace=indent,eol,start
 
 " Tab settings for different file types
 autocmd FileType python set softtabstop=4 sw=4 ts=4 et
-autocmd FileType arduino set softtabstop=4 sw=4 ts=4 et
 autocmd FileType go set softtabstop=4 sw=4 ts=4 noet
 autocmd FileType html,htmljinja set softtabstop=2 sw=2 ts=2 et
 autocmd FileType vhdl set softtabstop=3 sw=3 ts=3 noet
 autocmd FileType openscad set softtabstop=4 sw=4 ts=4 et
 autocmd FileType rst set softtabstop=2 sw=2 ts=2 et
-autocmd FileType yaml set softtabstop=2 sw=2 ts=2 et
+"autocmd FileType yaml set softtabstop=2 sw=2 ts=2 et
 
 " Show a different background color after column 80
 "let &colorcolumn=join(range(81,999),",")
@@ -82,12 +79,6 @@ set ignorecase      " searches are case insensitive
 set smartcase       " ... unless they contain one or more capital letters
 set gdefault        " substitute all matches in a line instead of one
 
-" GUI options
-if has("gui_running")
-    set guioptions=     " remove toolbar and scroll bars
-    set guifont=DejaVu\ Sans\ Mono\ for\ PowerLine\ 10
-endif
-
 " Turn backups off
 set nobackup
 set nowb
@@ -103,10 +94,10 @@ map <C-l> <C-w>l
 au VimEnter * set vb t_vb=
 
 " Compile with F9
-nmap <F9> :make<CR>
+"nmap <F9> :make<CR>
 
 " Toggle paste mode with F4
-set pastetoggle=<F4>
+"set pastetoggle=<F4>
 
 " Run a Python script with F4 (example)
 " nnoremap <F4> <ESC>:w<CR>:!python myscript.py<CR>
@@ -140,13 +131,15 @@ let g:netrw_list_hide='^\.,.*\.pyc$'
 
 iabbrev @@ juanmb@gmail.com
 
+"au BufRead,BufNewFile *.ino set filetype=cpp
+
 let base16colorspace=256 " Access colors present in 256 colorspace
 set t_Co=256 " 256 color mode
 set background=dark
 colorscheme base16-default-dark
 set mouse=a
 
-" Configuration of plugins
+" Plugins configuration
 """"""""""""""""""""""""""""""""""""""""""
 
 " Airline
@@ -166,7 +159,7 @@ nnoremap <silent> <F8> <ESC>:TagbarToggle<CR>
 let g:localvimrc_sandbox = 0
 
 " YouCompleteMe
-let g:ycm_autoclose_preview_window_after_insertion = 1
+"let g:ycm_autoclose_preview_window_after_insertion = 1
 
 " Vim-go
 let g:go_fmt_command = "goimports"

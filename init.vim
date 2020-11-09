@@ -1,59 +1,59 @@
 " Plugins folder
 call plug#begin('~/.local/share/nvim/plugged')
-" List of plugins
+" Generic plugins:
 Plug 'ervandew/supertab'
-Plug 'ninegrid/vim-fbp'
 Plug 'scrooloose/nerdtree'
+Plug 'kien/ctrlp.vim'
 Plug 'SirVer/ultisnips'
 Plug 'majutsushi/tagbar'
-"Plug 'tpope/vim-fugitive'
+Plug 'chriskempson/base16-vim' " Color themes
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-"Plug 'hynek/vim-python-pep8-indent'
-"Plug 'nvie/vim-flake8'
-"Plug 'godlygeek/tabular'
-Plug 'kien/ctrlp.vim'
-Plug 'scrooloose/nerdcommenter'
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'bronson/vim-trailing-whitespace'
+Plug 'Valloric/YouCompleteMe'
+Plug 'scrooloose/nerdcommenter'
+"Plug 'davidhalter/jedi-vim'
+"Plug 'embear/vim-localvimrc'
+"Plug 'tpope/vim-surround'
+"Plug 'tpope/vim-commentary'
+"Plug 'godlygeek/tabular'
+"Plug 'tpope/vim-fugitive'
+"Plug 'Chiel92/vim-autoformat'
+
+" Language-specific plugins:
 Plug 'fatih/vim-go'
+Plug 'cespare/vim-toml'
+Plug 'tpope/vim-markdown'
+"Plug 'ekalinin/Dockerfile.vim'
+"Plug 'pearofducks/ansible-vim'
+"Plug 'nvie/vim-flake8'
+"Plug 'hynek/vim-python-pep8-indent'
 "Plug 'mitsuhiko/vim-jinja'
 "Plug 'kergoth/vim-bitbake'
 "Plug 'kurayama/systemd-vim-syntax'
 "Plug 'vim-scripts/openscad.vim'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'tpope/vim-markdown'
-Plug 'Valloric/YouCompleteMe'
-"Plug 'ekalinin/Dockerfile.vim'
-"Plug 'pearofducks/ansible-vim'
 "Plug 'vhda/verilog_systemverilog.vim'
-"Plug 'vim-scripts/DrawIt'
-"Plug 'Chiel92/vim-autoformat'
-"Plug 'embear/vim-localvimrc'
-Plug 'wannesm/wmgraphviz.vim'
-"Plug 'tpope/vim-surround'
-"Plug 'tpope/vim-commentary'
 "Plug 'pangloss/vim-javascript'
-"Plug 'davidhalter/jedi-vim'
 "Plug 'vim-scripts/c.vim'
 "Plug 'vim-scripts/linuxsty.vim'
-Plug 'chriskempson/base16-vim' " Color themes
+Plug 'ninegrid/vim-fbp'
+Plug 'wannesm/wmgraphviz.vim'
 Plug 'https://bitbucket.org/spilt/vim-peg', { 'for': 'peg' }
 call plug#end()
 
-"filetype plugin indent on	" required!
-
 " Indentation
-set autoindent          " indent at the same level as the preceding line
+set autoindent  " indent at the same level as the preceding line
 set backspace=indent,eol,start
 
 " Tab settings for different file types
 autocmd FileType python set softtabstop=4 sw=4 ts=4 et
 autocmd FileType go set softtabstop=4 sw=4 ts=4 noet
+autocmd FileType yaml set softtabstop=2 sw=2 ts=2 et
 autocmd FileType html,htmljinja set softtabstop=2 sw=2 ts=2 et
 autocmd FileType vhdl set softtabstop=3 sw=3 ts=3 noet
-autocmd FileType openscad set softtabstop=4 sw=4 ts=4 et
 autocmd FileType rst set softtabstop=2 sw=2 ts=2 et
-"autocmd FileType yaml set softtabstop=2 sw=2 ts=2 et
+autocmd FileType openscad set softtabstop=4 sw=4 ts=4 et
 
 " Show a different background color after column 80
 "let &colorcolumn=join(range(81,999),",")
@@ -72,6 +72,7 @@ set fileformat=unix
 set fileformats=unix
 let g:Powerline_symbols = 'fancy'
 inoremap jj <Esc>   " escape insert mode with jj
+"let mapleader="\\"
 
 " Search options
 set hlsearch        " highlight search matches
@@ -120,7 +121,7 @@ map <C-left> <ESC>:bprevious<CR>
 " Insert a new line after the current one using ENTER
 map <CR> o<Esc>k
 " Insert a new line before the current one using SHIFT+ENTER
-"map <S-Enter> O<Esc>j
+map <S-CR> O<Esc>j
 
 " Auto-indent JSON by typing :FormatJSON
 com! FormatJSON %!python -m json.tool
@@ -131,6 +132,7 @@ let g:explHideFiles='^\.,.*\.pyc$'
 let g:netrw_list_hide='^\.,.*\.pyc$'
 
 iabbrev @@ juanmb@gmail.com
+iabbrev ccopy Copyright 2020 TWave SL. All rights reserved
 
 "au BufRead,BufNewFile *.ino set filetype=cpp
 
@@ -160,7 +162,7 @@ nnoremap <silent> <F8> <ESC>:TagbarToggle<CR>
 let g:localvimrc_sandbox = 0
 
 " YouCompleteMe
-"let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
 
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
@@ -169,7 +171,6 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " Vim-go
 let g:go_fmt_command = "goimports"
-au FileType go nmap <F9> <Plug>(go-build)
 
 " better key bindings for UltiSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger = "<tab>"
@@ -177,5 +178,10 @@ let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " Vim-autoformat
-let g:formatdef_c_config = '"astyle --mode=c --style=stroustrup -pcHs4"'
-let g:formatters_c = ['c_config']
+"let g:formatdef_c_config = '"astyle --mode=c --style=stroustrup -pcHs4"'
+"let g:formatters_c = ['c_config']
+
+" Mappings for editing and source this file quickly
+nnoremap <leader>ev :split $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+inoremap jk <esc>

@@ -20,6 +20,8 @@ DIR=$HOME/.dotfiles
 
 # Define here the files to link
 makesymlink $DIR/zshrc $HOME/.zshrc
+#makesymlink $DIR/vimrc $HOME/.vimrc
+makesymlink $DIR/init.vim $HOME/.config/nvim/init.vim
 makesymlink $DIR/tmux.conf $HOME/.byobu/.tmux.conf
 makesymlink $DIR/init.vim $HOME/.config/nvim/init.vim
 #makesymlink $DIR/vimrc $HOME/.vimrc

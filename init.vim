@@ -15,9 +15,10 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
 Plug 'kien/ctrlp.vim'
+Plug 'ervandew/supertab'
+Plug 'SirVer/ultisnips'
 "Plug 'Chiel92/vim-autoformat'
 "Plug 'embear/vim-localvimrc'
-"Plug 'SirVer/ultisnips'
 "Plug 'tpope/vim-fugitive'
 "Plug 'tpope/vim-surround'
 "Plug 'tpope/vim-commentary'
@@ -174,8 +175,16 @@ let g:localvimrc_sandbox = 0
 
 " Vim-go
 let g:go_fmt_command = "goimports"
-let g:UltiSnipsExpandTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " Vim-autoformat
 let g:formatdef_c_config = '"astyle --mode=c --style=stroustrup -pcHs4"'

@@ -3,33 +3,29 @@ Essential packages
 
 This line installs (in Debian/Ubuntu) some of the most essential packages I use:
 
-    sudo apt-get install git zsh byobu curl neovim exuberant-ctags build-essential pass
+    sudo apt-get install git zsh byobu curl neovim exuberant-ctags build-essential cmake pass encfs python3-dev python3-pip
 
 Other very useful tools:
  - [htop](https://htop.dev/)
  - [bat](https://github.com/sharkdp/bat)
  - [ranger](https://ranger.github.io/)
  - [git-secret](https://git-secret.io/)
- - [pre-commit](https://pre-commit.com/)
  - [The Silver Searcher](https://github.com/ggreer/the_silver_searcher)
 
 Install them all with:
 
-    sudo apt-get install htop ranger pass silversearcher-ag
-    pip install pre-commit
+    sudo apt-get install htop bat ranger git-secret silversearcher-ag
 
 Some Python packages:
 
-    sudo apt-get install python-pip python-virtualenv python-tox python-flake8 python-dev ipython python-numpy python-scipy
-    sudo pip install -U pip
-    sudo pip install virtualenvwrapper
+    pip3 install --user virtualenvwrapper numpy ipython pre-commit
 
 Shell configuration
 ===================
 
 Install powerline globally:
 
-    sudo pip install git+git://github.com/Lokaltog/powerline
+    sudo pip3 install git+git://github.com/Lokaltog/powerline
 
 
 Patched fonts for powerline

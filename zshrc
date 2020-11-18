@@ -55,7 +55,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Go paths
 export GOROOT="/usr/local/go"
-export GOPATH="${HOME}/work/go"
+export GOPATH="${HOME}/go"
 
 export PATH="$PATH:${HOME}/.local/bin:$GOROOT/bin:$GOPATH/bin:${HOME}/.node_modules/bin:/usr/local/tinygo/bin"
 
@@ -88,6 +88,7 @@ watch() { while inotifywait --exclude .swp -e modify -r .; do $@; done; }
 alias ls="ls --group-directories-first --color -h"
 alias jspp="python -m json.tool"	# pretty print json
 alias shelob="go run gitlab.com/twaveio/shelob/cmd/shelob"
+alias ipython=ipython3
 
 #alias swagger='docker run --rm -it -e GOPATH=$GOPATH:/go -v $HOME:$HOME -w $(pwd) quay.io/goswagger/swagger'
 

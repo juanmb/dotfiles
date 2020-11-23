@@ -30,7 +30,7 @@ makesymlink $DIR/profile.tmux $HOME/.byobu/profile.tmux
 
 # vim and neovim
 #makesymlink $DIR/vimrc $HOME/.vimrc
-makesymlink $DIR/init.vim $HOME/.config/nvim/init.vim
+makesymlink $DIR/init_spacevim.vim $HOME/.config/nvim/init.vim
 
 # spacevim
 makesymlink $DIR/init.toml $HOME/.SpaceVim.d/init.toml

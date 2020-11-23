@@ -1,0 +1,72 @@
+#=============================================================================
+# dark_powered.toml --- dark powered configuration example for SpaceVim
+# Copyright (c) 2016-2020 Wang Shidong & Contributors
+# Author: Wang Shidong < wsdjeg at 163.com >
+# URL: https://spacevim.org
+# License: GPLv3
+#=============================================================================
+
+# All SpaceVim option below [option] section
+[options]
+  # set spacevim theme. by default colorscheme layer is not loaded,
+  # if you want to use more colorscheme, please load the colorscheme
+  # layer
+  colorscheme = "gruvbox"
+  colorscheme_bg = "dark"
+  # Disable guicolors in basic mode, many terminal do not support 24bit
+  # true colors
+  enable_guicolors = true
+  # Disable statusline separator, if you want to use other value, please
+  # install nerd fonts
+  statusline_separator = "arrow"
+  statusline_iseparator = "arrow"
+  buffer_index_type = 4
+  enable_tabline_filetype_icon = true
+  enable_statusline_mode = false
+
+  # Disable smartclose, so 'q' enters recording mode as default
+  windows_smartclose = ''
+
+  enable_ycm = true
+  # snippet_engine = "ultisnips"
+
+  bootstrap_before = 'myspacevim#before'
+  bootstrap_after = 'myspacevim#after'
+
+[[layers]]
+  name = "autocomplete"
+  autocomplete_method = 'ycm'
+  auto_completion_return_key_behavior = "complete"
+  auto_completion_tab_key_behavior = "smart"
+
+[[layers]]
+  name = "format"
+
+[[layers]]
+  name = "shell"
+  default_position = "right"
+  default_height = 30
+
+[[layers]]
+  name = "lang#go"
+
+[[layers]]
+  name = "lang#markdown"
+
+[[layers]]
+  name = "lang#c"
+  clang_flag = ['-I/user/include']
+  enable_clang_syntax_highlight = true
+  clang_executable = "/usr/bin/clang"
+  format_on_save = true
+
+  [layer.clang_std]
+    c = "c11"
+    cpp = "c++1z"
+
+[[layers]]
+  name = "ctrlp"
+
+[[custom_plugins]]
+  repo = "christoomey/vim-tmux-navigator"
+  merged = false

@@ -18,11 +18,20 @@ makesymlink() {
 # Dotfiles directory
 DIR=$HOME/.dotfiles
 
-# Define here the files to link
+# Define here the files to be tracked:
+
+# zsh
 makesymlink $DIR/zshrc $HOME/.zshrc
-#makesymlink $DIR/vimrc $HOME/.vimrc
-makesymlink $DIR/init.vim $HOME/.config/nvim/init.vim
+
+# byobu and tmux
 makesymlink $DIR/tmux.conf $HOME/.byobu/.tmux.conf
 makesymlink $DIR/keybindings.tmux $HOME/.byobu/keybindings.tmux
-makesymlink $DIR/init.vim $HOME/.config/nvim/init.vim
+makesymlink $DIR/profile.tmux $HOME/.byobu/profile.tmux
+
+# vim and neovim
 #makesymlink $DIR/vimrc $HOME/.vimrc
+makesymlink $DIR/init.vim $HOME/.config/nvim/init.vim
+
+# spacevim
+makesymlink $DIR/init.toml $HOME/.SpaceVim.d/init.toml
+makesymlink $DIR/myspacevim.vim $HOME/.SpaceVim.d/autoload/myspacevim.vim

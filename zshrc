@@ -53,13 +53,12 @@ plugins=(wd git golang dotenv pass virtualenv virtualenvwrapper)
 
 source $ZSH/oh-my-zsh.sh
 
-# Go paths
+# Go environment
 export GOROOT="/usr/local/go"
 export GOPATH="${HOME}/go"
+export GOPRIVATE="github.com/twave-io/*"
 
 export PATH="$PATH:${HOME}/.local/bin:$GOROOT/bin:$GOPATH/bin:${HOME}/.node_modules/bin:/usr/local/tinygo/bin"
-
-source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
 export EDITOR='vim'
@@ -87,10 +86,13 @@ watch() { while inotifywait --exclude .swp -e modify -r .; do $@; done; }
 #alias t="todo.sh" 			# todo.txt
 alias ls="ls --group-directories-first --color -h"
 alias jspp="python -m json.tool"	# pretty print json
-alias shelob="go run gitlab.com/twaveio/shelob/cmd/shelob"
+alias shelob="go run github.com/twave-io/shelob/cmd/shelob"
 alias ipython=ipython3
+alias cat=batcat
 
 #alias swagger='docker run --rm -it -e GOPATH=$GOPATH:/go -v $HOME:$HOME -w $(pwd) quay.io/goswagger/swagger'
 
 # Arduino-Makefile configuration
 export ARDUINO_DIR="/opt/arduino-1.8.9"
+
+eval "$(hub alias -s)"
